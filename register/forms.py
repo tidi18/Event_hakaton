@@ -3,6 +3,7 @@ from captcha.fields import CaptchaField
 from django.core.validators import MinValueValidator, MaxValueValidator
 from .models import Team, Member
 
+
 class TeamForm(forms.ModelForm):
     hakaton = forms.Select(attrs={'class': 'form-control'})
     name_team = forms.CharField(label='Название команды', widget=forms.TextInput(attrs={'class': 'form-input'}))
@@ -50,5 +51,3 @@ class MemberForm(forms.ModelForm):
             self.fields['age'].widget.attrs['placeholder'] = 'Укажите ваш возраст'
             self.fields['captcha'].widget.attrs.update({"placeholder": 'Напишите текст с картинки'})
             self.fields[field].widget.attrs.update({"class": "form-control", "autocomplete": "on"})
-
-

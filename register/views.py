@@ -2,6 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from .forms import TeamForm, MemberForm
 
+
 class RegisterTeamView(CreateView):
     form_class = TeamForm
     success_url = reverse_lazy('register_members')
@@ -31,5 +32,3 @@ class RegisterMembersView(CreateView):
             form.add_error(None, f'Team {team} is full')
             return self.form_invalid(form)
         return super().form_valid(form)
-
-

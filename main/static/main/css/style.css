@@ -1,0 +1,44 @@
+#body {
+	height: auto;
+	background-image: url(../img/the_background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover; 
+	margin: 0;
+}
+
+
+#main_container {
+	color: white;
+	margin: 5px 5px 5px 5px;
+	padding: 20px;
+}
+
+
+#main_header {
+	background-color: #62197B;
+	opacity: 0.9;
+	padding: 2px;
+}
+
+#main_nav {
+	padding: 2px;
+}
+
+.nav-item {
+	margin-left: 20px;
+}
+
+
+#my_nav-link {
+	color: white;
+}
+
+
+#form_style {
+	opacity: 0.9;
+}
+
+#button_style {
+	background-color: #62197B;
+	border-color: #62197B;
+}

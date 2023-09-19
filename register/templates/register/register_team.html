@@ -1,14 +1,10 @@
 {% extends 'main/layout.html' %}
-{% block title %}Главное{% endblock %}
-
+{% block title %}Регистрация команды{% endblock %}
 {% block body %}
-    <h1>Реистрация участника</h1>
-    <div class="control-form container-fluid" id="">
-        <form class="form-control" id="my-form" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn btn-primary" id="my-btn" type="submit">Oтправить</button>
-        </form>
-
-
+	 <h1>Форма регистрации команды</h1>
+    <form class="form-control" id="form_style" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" id="button_style" type="submit">Отправить</button>
+    </form>
 {% endblock %}

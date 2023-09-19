@@ -1,60 +1,9 @@
 {% extends 'main/layout.html' %}
 {% block title %}Главное{% endblock %}
-
 {% block body %}
 	<div>
-		<div>
-			{% for hakaton in list_hakaton %}
-			<h1>{{hakaton.name}}</h1>
-		</div>
-		<h3>{{hakaton.date }}</h3>
-		<div>
-			<p>
-				{{hakaton.anons}}
-			</p>
-		</div>
-		<div>
-			<p>
-				{{hakaton.rules}}
-				{{list_member}}
-			</p>
-		</div>
-			{% endfor %}
-		<div>
-			<table>
-  			<thead>
-    			<tr>
-      			<th>Команда</th>
-      			<th>Название</th>
-      			<th>Участники</th>
-    			</tr>
-  			</thead>
-  			<tbody>
-    			{% for team in list_team %}
-    			<tr>
-      			<td>{{ team.id }}</td>
-      			<td>{{ team.name_team }}</td>
-      			<td>
-        			<ul>
-          			{% for member in list_member %}
-          			<li>{{ member.name }} {{member.last_name}}</li>
-          			{% endfor %}
-        			</ul>
-      			</td>
-    			</tr>
-    			{% endfor %}
-  			</tbody>
-			</table>
-		</div>
-			<div>
-			</div>
-		</div>
+		<h1>
+			home
+		</h1>
 	</div>
 {% endblock %}
-
-
-
-
-
-
-
