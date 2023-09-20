@@ -26,7 +26,11 @@ class TeamForm(forms.ModelForm):
 
 class MemberForm(forms.ModelForm):
     team = forms.Select(attrs={'class': 'form-control'})
-    is_captain = forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    is_captain = forms.BooleanField(
+        label='Капитан команды',
+        widget=forms.CheckboxInput(attrs={'id': 'checkbox-control'}),
+        required=False,
+    )
     name = forms.CharField(label='Имя', max_length=50, widget=forms.TextInput(attrs={'class': 'form-input'}))
     last_name = forms.CharField(label='Фамилия', max_length=100, widget=forms.TextInput(attrs={'class': 'form-input'}))
     age = forms.IntegerField(label='Возраст',
@@ -43,11 +47,21 @@ class MemberForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for field in self.fields:
-            self.fields['team'].widget.attrs['placeholder'] = 'Укажите команду'
-            self.fields['is_captain'].widget.attrs['placeholder'] = 'капитан команды'
-            self.fields['name'].widget.attrs['placeholder'] = 'Введите имя'
-            self.fields['last_name'].widget.attrs['placeholder'] = 'Введите фамилию'
-            self.fields['age'].widget.attrs['placeholder'] = 'Укажите ваш возраст'
-            self.fields['captcha'].widget.attrs.update({"placeholder": 'Напишите текст с картинки'})
-            self.fields[field].widget.attrs.update({"class": "form-control", "autocomplete": "on"})
+
+        for field_name, field in self.fields.items():
+            if field_name == 'team':
+                field.widget.attrs['placeholder'] = 'Укажите команду'
+            elif field_name == 'name':
+                field.widget.attrs['placeholder'] = 'Введите имя'
+            elif field_name == 'last_name':
+                field.widget.attrs['placeholder'] = 'Введите фамилию'
+            elif field_name == 'age':
+                field.widget.attrs['placeholder'] = 'Укажите ваш возраст'
+            elif field_name == 'captcha':
+                field.widget.attrs.update({"placeholder": 'Напишите текст с картинки'})
+
+            field.widget.attrs.update({"class": "form-control", "autocomplete": "on"})
+
+        # Отдельное применение класса для поля is_captain
+        self.fields['is_captain'].widget.attrs['class'] = 'form-check-input checkbox-control'
+

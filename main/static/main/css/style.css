@@ -42,3 +42,20 @@
 	background-color: #62197B;
 	border-color: #62197B;
 }
+
+#checkbox-control input[type="checkbox"] {
+    /* Стилизация чекбокса, как вам нужно */
+    margin-right: 5px;
+}
+
+#checkbox-control input[type="checkbox"]:checked {
+    /* Стилизация чекбокса при выборе */
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+}
+
+#checkbox-control input[type="checkbox"]:hover {
+    /* Стилизация чекбокса при наведении */
+    background-color: #e6e6e6;
+    border: 1px solid #999;
+}

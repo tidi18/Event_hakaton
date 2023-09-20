@@ -5,7 +5,7 @@ from .forms import TeamForm, MemberForm
 
 class RegisterTeamView(CreateView):
     form_class = TeamForm
-    success_url = reverse_lazy('register_members')
+    success_url = reverse_lazy('register_member')
     template_name = "register/register_team.html"
     success_message = 'Команда создана'
 
@@ -28,7 +28,16 @@ class RegisterMembersView(CreateView):
 
     def form_valid(self, form):
         team = form.cleaned_data['team']
-        if team.is_full():
-            form.add_error(None, f'Team {team} is full')
+
+        # Проверяем, есть ли уже капитан в команде
+        existing_captain = team.members.filter(is_captain=True).first()
+        if existing_captain and form.cleaned_data['is_captain']:
+            form.add_error('is_captain', 'В этой команде уже есть капитан.')
             return self.form_invalid(form)
+
+        # Проверяем, заполнена ли команда до максимального количества участников
+        if team.is_full():
+            form.add_error(None, f'Команда {team} заполнена до максимального количества участников.')
+            return self.form_invalid(form)
+
         return super().form_valid(form)

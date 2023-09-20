@@ -41,7 +41,7 @@ class Team(models.Model):
 
 class Member(models.Model):
     team = models.ForeignKey(Team, related_name='members', verbose_name='Команда', on_delete=models.CASCADE)
-    is_captain = models.BooleanField(verbose_name='Капитан команды', blank=False)
+    is_captain = models.BooleanField(verbose_name='Капитан команды', default=False)
     name = models.CharField(max_length=50, blank=False, verbose_name='Имя')
     last_name = models.CharField(max_length=100, blank=False, verbose_name='Фамилия')
     age = models.IntegerField(verbose_name='Возраст',
