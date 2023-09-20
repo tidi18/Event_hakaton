@@ -14,25 +14,26 @@
 }
 
 
-#main_header {
-	background-color: #62197B;
-	opacity: 0.9;
-	padding: 2px;
-}
-
-#main_nav {
-	padding: 2px;
-}
-
-.nav-item {
-	margin-left: 20px;
+#custom-navbar {
+    background-color: #62197B !important;
+    opacity: 0.9; 
 }
 
 
 #my_nav-link {
 	color: white;
+  border-bottom: 2px solid transparent; /* Задайте прозрачную границу */
+  transition: border-color 0.3s; /* Добавьте плавный переход для цвета границы */
 }
 
+#my_nav-link:hover {
+  border-color: white; /* Смена цвета границы при наведении курсора */
+}
+
+
+#my_toggler {
+	color: white ;
+}
 
 #form_style {
 	opacity: 0.9;
@@ -59,3 +60,5 @@
     background-color: #e6e6e6;
     border: 1px solid #999;
 }
+
+
