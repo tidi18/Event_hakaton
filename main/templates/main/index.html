@@ -1,9 +1,28 @@
 {% extends 'main/layout.html' %}
 {% block title %}Главное{% endblock %}
 {% block body %}
-	<div>
-		<h1>
-			home
-		</h1>
+	<div id="index-main">
+		<div id="index-table-name">
+			<h3>
+				События
+			</h3>
+		</div>
+		{% for hakaton in hakaton_data %}
+			<div id="index-table-link">
+				<hr>
+				<h6>
+					<a href="{% url 'hakaton_detail' slug=hakaton.slug %}">{{ hakaton.name}}</a>
+				</h6>
+				<p>
+					{{ hakaton.date}}
+				</p>
+				<p>
+					<a href="tg://resolve?domain={{ hakaton.telegram }}">Ссылка на Telegram</a>
+				</p>
+				<hr>
+			</div>
+		{% endfor %}
 	</div>
 {% endblock %}
+
+

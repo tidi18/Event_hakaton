@@ -15,19 +15,19 @@
 
 
 #custom-navbar {
-    background-color: #62197B !important;
+    background-color: 	#AB343A !important;
     opacity: 0.9; 
 }
 
 
 #my_nav-link {
 	color: white;
-  border-bottom: 2px solid transparent; /* Задайте прозрачную границу */
-  transition: border-color 0.3s; /* Добавьте плавный переход для цвета границы */
+  border-bottom: 2px solid transparent; 
+  transition: border-color 0.3s;
 }
 
 #my_nav-link:hover {
-  border-color: white; /* Смена цвета границы при наведении курсора */
+  border-color: white;
 }
 
 
@@ -35,13 +35,23 @@
 	color: white ;
 }
 
+
+#home-logo-link {
+    width: 50px; /* Установите нужную ширину */
+    height: 50px; /* Установите нужную высоту */
+    clip-path: circle(50%); /* Создать круглое обрезанное изображение */
+}
+
+
+
 #form_style {
 	opacity: 0.9;
+	
 }
 
 #button_style {
-	background-color: #62197B;
-	border-color: #62197B;
+	background-color: 	#AB343A;
+	border-color: 	#AB343A;
 }
 
 #checkbox-control input[type="checkbox"] {
@@ -62,3 +72,111 @@
 }
 
 
+#index-main {
+	background-color: white;
+	color: black;
+	opacity: 0.9;
+	padding: 5px;
+	border-radius: 5px 5px;
+}
+
+#index-table-name {
+	background-color: #AB343A;
+	color: white;
+	padding: 5px;
+	border-radius: 5px 5px;
+
+}
+
+#index-table-link a {
+	background-color: #AB343A;
+	text-decoration: none;
+	color: white;
+	border-radius: 2px 2px;
+	padding: 4px;
+	transition: border-radius 0.5s;
+}
+
+
+#index-table-link a:hover {
+	border-radius: 4px 4px;
+}
+
+
+#main-detail {
+	background-color: white;
+	opacity: 0.9;
+	border-radius: 5px 5px;
+	color: black;
+	padding: 4px;
+}
+
+#detail-name {
+	background-color: #AB343A;
+	color: white;
+	border-radius: 5px 5px;
+	padding: 4px;
+}
+
+
+#index-table-link h6,
+#index-table-link p,
+#index-table-link a {
+	display: inline;
+  margin-right: 10px;
+
+}
+
+
+#about-main {
+	background-color: white;
+	opacity: 0.9;
+	padding: 5px;
+	border-radius: 5px;
+	color: black;
+}	
+
+
+#about-main-text {
+	background-color: #AB343A;
+	border-radius: 4px;
+	color: white;
+	padding: 3px;
+}
+
+#about-main-info {
+	padding: 5px;
+}
+
+#about-link{
+	background-color: #AB343A;
+	text-decoration: none;
+	color: white;
+	border-radius: 2px 2px;
+	padding: 2px;
+	transition: border-radius 0.5s;
+
+}
+
+#about-link:hover {
+	border-radius: 4px 4px;
+}
+
+
+#detail-main-text {
+	background-color: #AB343A;
+	color: white;
+	padding: 4px;
+	border-radius: 5px;
+}
+
+
+#detail-main-info {
+	padding: 5px;
+}
+
+#about-table-nav {
+	background-color: #AB343A;
+	color: white;
+	border-radius: 5px;
+}

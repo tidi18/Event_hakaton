@@ -1,0 +1,86 @@
+{% extends 'main/layout.html' %}
+{% block title %}{{ hakaton.name}}{% endblock %}
+{% block body %}
+  <div id="main-detail">
+    <div id="detail-name">
+      <h3>{{ hakaton.name}}</h3>
+    </div>
+    <br>
+    <div>
+      <div id="detail-main-text">
+        <h5>
+          Дата проведение
+        </h5>
+      </div>
+      <div id="detail-main-info">
+        <h6>
+          {{ hakaton.date}}
+        </h6>
+      </div>
+    </div>
+    <br>
+    <div>
+      <div id="detail-main-text">
+        <h5>
+          Правила
+        </h5>
+      </div>
+      <div id="detail-main-info">
+        <p>
+          {{ hakaton.rules}}
+        </p>
+      </div>
+    </div>
+    <br>
+    <div>
+      <div id="detail-main-text">
+        <h5>
+          Краткий анонс
+        </h5>
+      </div>
+      <div id="detail-main-info">
+        <p>
+          {{ hakaton.anons}}
+        </p>
+      </div>
+    </div>
+    <br>
+    <div>
+      <table class="table">
+        <thead id="about-table-nav">
+            <tr>
+                <th class="col">id</th>
+                <th class="col">Название команды</th>
+                <th class="col">Количество участников в команде</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for team in hakaton.teams.all %}
+                <tr>
+                    <td>{{ team.id }}</td>
+                    <td>{{ team.name_team }}</td>
+                    <td>{{ team.max_members }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <div>
+      <div id="detail-main-text">
+        <h5>
+          Призы
+        </h5>
+      </div>
+      <div id="detail-main-info">
+        <p>
+          {{ hakaton.prizes}}
+        </p>
+      </div>
+    </div>
+    <hr>
+  </div>
+{% endblock %}
+
+
+

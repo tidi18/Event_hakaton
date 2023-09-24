@@ -1,5 +1,14 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.exceptions import ValidationError
+import re
+from pytils.translit import slugify
+
+
+def validate_telegram(value):
+    # Проверка, что значение соответствует формату Telegram (начинается с @ и содержит только буквы, цифры и _)
+    if not re.match(r'^@[\w\d_]+$', value):
+        raise ValidationError('Неверный формат Telegram. Имя пользователя должно начинаться с @ и содержать только буквы, цифры и _.')
 
 
 class Hakaton(models.Model):
@@ -8,10 +17,16 @@ class Hakaton(models.Model):
     rules = models.TextField(blank=False, verbose_name='Правила сорвнования', null=True)
     anons = models.TextField(blank=False, verbose_name='Краткий анонс', null=True)
     prizes = models.TextField(blank=False, verbose_name='Призы', null=True)
-    contact = models.CharField(max_length=255,  blank=False, verbose_name='Контакты', null=True)
+    telegram = models.CharField(max_length=255,  blank=False, verbose_name='Telegram', null=True, validators=[validate_telegram])
+    slug = models.SlugField(max_length=255, unique=True, blank=True, null=True, verbose_name='Slug')
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super(Hakaton, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Хакатон'

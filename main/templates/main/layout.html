@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="{% static 'main/css/style.css' %}">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+	<link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
 	<title>{% block title %}{% endblock %}</title>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -16,7 +17,9 @@
 	<header>
 		<nav class="navbar navbar-expand-lg" id="custom-navbar">
   		<div class="container-fluid">
-    		<a class="navbar-brand" href="#">Фото</a>
+    		<a class="navbar-brand" id="" href="{% url 'index' %}">
+  				<img id="home-logo-link" src="{% static 'img/it_event_kg__logo.svg' %}" alt="home logo">
+				</a>
     		<button class="navbar-toggler" id="my_toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       		<span>
       			<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -29,6 +32,7 @@
         		<a class="nav-link active" id="my_nav-link" aria-current="page" href="{% url 'index' %}">Главное</a>
         		<a class="nav-link" id="my_nav-link" href="{% url 'register_team' %}">Регистрация команды</a>
         		<a class="nav-link" id="my_nav-link" href="{% url 'register_member' %}">Регистрация участника в команду</a>
+        		<a class="nav-link" id="my_nav-link" href="{% url 'about' %}">О нас</a>
       		</div>
     		</div>
   		</div>
